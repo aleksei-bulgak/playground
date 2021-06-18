@@ -1,7 +1,7 @@
 .controls {
     position: absolute;
-    bottom: 2rem;
-    right: 1rem;
+    bottom: 3rem;
+    right: 2rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -22,6 +22,7 @@
     border-radius: 1rem;
     filter: none;
     transition: filter 1s ease-out;
+    color: #2aa3ff;
 }
 
 .controls__key:first-child {
