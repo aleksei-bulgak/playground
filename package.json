@@ -1,5 +1,5 @@
 {
-  "name": "test-youtube",
+  "name": "game",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,7 +13,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "react-youtube": "^7.13.1",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },

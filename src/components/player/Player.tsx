@@ -1,31 +1,18 @@
 import React from 'react';
-import YouTube from 'react-youtube';
+import { useContext } from 'react';
 import Overlay from '../overlay';
+import { ApiContext } from '../../hooks/ApiProvider';
+import { Store } from '../../types/store';
+import { Api } from '../../types/api';
 
-const Player: React.FC<{ videoId: string }> = ({ videoId }) => {
+const Player: React.FC<{}> = () => {
+    const data = useContext<(Api & Store) | undefined>(ApiContext);
+
     return (
         <>
-            <YouTube
-                id="player"
-                containerClassName="player"
-                videoId={videoId}
-                opts={{
-                    height: '100%',
-                    width: '100%',
-                    playerVars: {
-                        autoplay: 1,    // start video after player loaded
-                        mute: 1,        // volume 0
-                        controls: 0,    // disable controls
-                        loop: 1,        // repeat video after finish
-                        rel: 0,         // view relevant videos disabled
-                        showinfo: 0,    // hide video info
-                        disablekb: 1,   //disable keyboard
-                        fs: 0,          // disable fullscreen button
-                        modestbranding: 1,  // less branding
-                        iv_load_policy: 3 // disable annotations
-                    },
-                }}
-            />
+            <video>
+                <source src={`${process.env.REACT_APP_VIDEO_URL}/${data?.videoId}`} />
+            </video>
             <Overlay zIndex={1} />
         </>
     );
