@@ -1,17 +1,12 @@
 import React from 'react';
-import { useContext } from 'react';
 import Overlay from '../overlay';
-import { ApiContext } from '../../hooks/ApiProvider';
-import { Store } from '../../types/store';
-import { Api } from '../../types/api';
 
-const Player: React.FC<{}> = () => {
-    const data = useContext<(Api & Store) | undefined>(ApiContext);
+const Player: React.FC<{videoId?: number}> = ({videoId}) => {
 
     return (
         <>
             <video>
-                <source src={`${process.env.REACT_APP_VIDEO_URL}/${data?.videoId}`} />
+                <source src={`${process.env.REACT_APP_VIDEO_URL}/${videoId}`} />
             </video>
             <Overlay zIndex={1} />
         </>

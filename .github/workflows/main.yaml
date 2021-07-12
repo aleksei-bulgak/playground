@@ -13,8 +13,8 @@ jobs:
       - name: Install and Build
         run: |
           export PUBLIC_URL=https://aleksei-bulgak.github.io/playground
-          npm ci
-          npm run build
+          yarn install
+          yarn build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
