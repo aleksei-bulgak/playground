@@ -1,43 +1,22 @@
-import { useEffect, useState } from 'react';
-import Player from './components/player';
-import Controls from './components/controls';
-import ApiProvider from './hooks/ApiProvider';
-import Loader from './components/loader';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
-import './App.css';
-import { useCallback } from 'react';
+import Loader from './pages/LoaderPage';
 
-type Info = {
-    sessionId?: number;
-    videoId?: string;
-};
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const GamePage = lazy(() => import('./pages/GamePage'));
 
 function App() {
-    const [info, setInfo] = useState<Info>();
-    const [failed, setFailed] = useState<boolean>(false);
-
-    useEffect(() => {
-        const sessionIdString = process.env.REACT_APP_SESSION_ID;
-        const sessionId = sessionIdString ? +sessionIdString : undefined;
-        const videoId = process.env.REACT_APP_VIDEO_ID;
-        setInfo({ sessionId, videoId });
-    }, []);
-
-    const onError = useCallback(() => {
-        setFailed((prev) => !prev);
-    }, []);
-
-    if (failed || !info?.sessionId || !info.videoId) {
-        return <Loader />;
-    }
-
     return (
-        <ApiProvider sessionId={info.sessionId} videoId={info.videoId} onError={onError}>
-            <div className="App">
-                <Player />
-                <Controls />
-            </div>
-        </ApiProvider>
+        <Router>
+            <Suspense fallback={<Loader />}>
+                <Switch>
+                    <Route path="/game" component={GamePage} />
+                    <Route path="/login" component={LoginPage} />
+                    <Redirect to="/login" />
+                </Switch>
+            </Suspense>
+        </Router>
     );
 }
 
