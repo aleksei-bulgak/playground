@@ -53,7 +53,7 @@ const Controls: React.FC<{ onAction: OnActionType }> = ({ onAction }) => {
     return (
         <section className="controls">
             {keys.map((key) => (
-                <ControlKey key={key.id} id={key.id} onClick={onClick} />
+                <ControlKey key={key.id} id={key.id} onClick={onClick} active={key.id === actionKey}/>
             ))}
         </section>
     );
