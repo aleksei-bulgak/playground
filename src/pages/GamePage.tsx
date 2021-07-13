@@ -24,7 +24,7 @@ function Game() {
     );
 
     useEffect(() => {
-        if (status === 'close' || status === 'error' || (!gameId && !serverUrl)) {
+        if (status === 'close' || status === 'error') {
             dispatch(onGameInfoChange({}));
             history.replace('/login');
         }
@@ -32,7 +32,7 @@ function Game() {
 
     return (
         <div className="game">
-            <Player videoId={1} />
+            <Player />
             <Controls onAction={onKeyPress} />
         </div>
     );

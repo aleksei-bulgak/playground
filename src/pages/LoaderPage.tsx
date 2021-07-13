@@ -1,7 +1,7 @@
 import React from 'react';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles({
     loader: {
         position: 'fixed',
         top: 0,
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
     },
-}));
+});
 
 const LoaderPage: React.FC<{}> = () => {
     const classes = useStyles();

@@ -45,6 +45,7 @@ class Player extends React.Component {
           ref={node => this.videoNode = node!}
           height='100%'
           width='100%'
+          style={{width: '100vw', height: '100vh'}}
         />
         <Overlay zIndex={1} />
       </>

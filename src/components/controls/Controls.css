@@ -1,40 +1,41 @@
 .controls {
     position: absolute;
-    bottom: 3rem;
+    bottom: 6rem;
     left: 2rem;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
-    min-height: 10rem;
     align-items: flex-end;
+    gap: 0.5rem;
+
+    min-height: 12rem;
     z-index: 1000;
 
     background-color: #96969669;
     border-radius: 1rem;
+    padding: 1rem;
 }
 
 .controls__key {
-    font-size: 0;
-    padding: 0;
-    border-width: 0px;
-    background-color: transparent;
-    overflow: hidden;
-    border-radius: 1rem;
-    filter: none;
+    width: 5rem;
+    height: 5rem;
+
     transition: filter 1s ease-out;
-    color: #2aa3ff;
+    
+    border-radius: 1rem;
+    border: 2px solid rgb(125, 125, 125);
+    font-size: 2rem;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: white;
 }
 
 .controls__key:first-child {
     position: absolute;
-    bottom: 5rem;
+    bottom: 6.5rem;
 }
 
 .keyboard__key--active{
     filter: invert(1);
-}
-
-.controls__image {
-    width: 5rem;
-    height: 5rem;
 }

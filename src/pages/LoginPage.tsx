@@ -1,20 +1,25 @@
-import { TextField, IconButton } from '@material-ui/core';
+import { TextField, Fab } from '@material-ui/core';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { useState } from 'react';
 import { useCallback } from 'react';
 import { useHistory } from 'react-router';
 
+
 import { useAppDispatch } from '../store/hooks';
+import { cleareError } from '../store/slices/commonSlice';
 import { onGameInfoChange } from '../store/slices/gameSlice';
 
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
+        width: '100%'
+    },
+    form: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'space-evenly',
         gap: '1rem',
+        margin: '0 auto',
         [theme.breakpoints.down('md')]: {
             maxWidth: '80%',
         },
@@ -48,6 +53,7 @@ const Login: React.FC<{}> = () => {
             e.preventDefault();
             if (!!gameId && !!serverUrl) {
                 dispatch(onGameInfoChange({ gameId, serverUrl }));
+                dispatch(cleareError());
                 history.replace('/game');
             }
         },
@@ -57,7 +63,7 @@ const Login: React.FC<{}> = () => {
     return (
         <>
             <section className={`login ${classes.root}`}>
-                <form onSubmit={onLogin}>
+                <form onSubmit={onLogin} className={`${classes.form}`}>
                     <TextField
                         id="url"
                         className="login__url"
@@ -77,13 +83,14 @@ const Login: React.FC<{}> = () => {
                         value={gameId}
                         type="number"
                     />
-                    <IconButton
+                    <Fab
                         className={`login__button ${classes.submit}`}
                         aria-label="login__button"
                         onClick={onLogin}
+                        variant="circular"
                     >
                         <ArrowRightAltIcon />
-                    </IconButton>
+                    </Fab>
                 </form>
             </section>
         </>

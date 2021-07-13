@@ -1,23 +1,22 @@
 import React from 'react';
 import { KeyCode } from '../../types/key';
 import { OnActionType } from './Controls';
+import Button from '@material-ui/core/Button';
 
 export interface ControlKeyData {
     id: KeyCode;
-    img: string;
-    active?: boolean;
 }
 
-const ControlKey: React.FC<{ data: ControlKeyData; onClick: OnActionType }> = ({ data, onClick }) => {
+const ControlKey: React.FC<{ id: KeyCode; onClick: OnActionType; }> = ({ id, onClick }) => {
+
     return (
-        <button
-            id={data.id}
-            className={`controls__key ${data.active ? 'keyboard__key--active' : ''}`}
-            onClick={() => onClick(data.id, 'keydown')}
+        <Button
+            id={id}
+            className='controls__key'
+            onClick={() => onClick(id, 'keydown')}
         >
-            {data.id}
-            <img src={data.img} alt="keyboard button" className="controls__image" />
-        </button>
+            {id}
+        </Button>
     );
 };
 

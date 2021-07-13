@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit';
+import { RootState } from '../index';
 export interface CommonState {
     loader: boolean;
     errorMessage: string | null;
@@ -19,9 +20,17 @@ const commonSlice = createSlice({
         error(state, action: PayloadAction<string | null>) {
             state.errorMessage = action.payload;
         },
+        cleareError(state, action: PayloadAction<void>) {
+            state.errorMessage = null;
+        },
     },
 });
 
-export const { loader, error } = commonSlice.actions;
+export const selectError = createSelector(
+    (state: RootState) => state.common,
+    (commonState: CommonState) => commonState.errorMessage,
+);
+
+export const { loader, error, cleareError } = commonSlice.actions;
 
 export default commonSlice.reducer;
