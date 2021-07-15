@@ -38,7 +38,7 @@ export const useWebSockets = ({ serverUrl, gameId }: Props) => {
         }
         return () => {
             if (!!server.current && (status === 'error' || status === 'close')) {
-                console.log(`Closing connection with server`);
+                console.log('Closing connection with server');
                 server.current.removeEventListener('message', serverEventListener);
                 server.current.removeEventListener('open', serverEventListener);
                 server.current.removeEventListener('error', serverEventListener);
@@ -50,8 +50,16 @@ export const useWebSockets = ({ serverUrl, gameId }: Props) => {
     }, [status, gameId, serverUrl, dispatch]);
 
     useEffect(() => {
+        const tearDown = () => {
+            console.log('Closing connection with server');
+            server.current?.close();
+        }
+        window.addEventListener('beforeunload', tearDown);
         //close connection on component destroy
-        return () => server.current?.close();
+        return () => {
+            tearDown();
+            window.removeEventListener('beforeunload', tearDown);
+        };
     }, []);
 
     const onAction = useCallback(
