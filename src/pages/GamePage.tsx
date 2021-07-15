@@ -24,7 +24,7 @@ function Game() {
     );
 
     useEffect(() => {
-        if (status === 'close' || status === 'error') {
+        if (status === 'close' || status === 'error' || (!serverUrl && !gameId && !status)) {
             dispatch(onGameInfoChange({}));
             history.replace('/login');
         }
