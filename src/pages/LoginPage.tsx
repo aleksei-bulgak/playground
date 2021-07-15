@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { useCallback } from 'react';
 import { useHistory } from 'react-router';
 
-
 import { useAppDispatch } from '../store/hooks';
 import { cleareError } from '../store/slices/commonSlice';
 import { onGameInfoChange } from '../store/slices/gameSlice';

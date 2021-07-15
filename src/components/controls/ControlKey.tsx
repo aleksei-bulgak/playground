@@ -1,10 +1,7 @@
-import React from 'react';
+import React, { useEffect, useCallback, useRef } from 'react';
 import { KeyCode } from '../../types/key';
 import { OnActionType } from './Controls';
 import Button from '@material-ui/core/Button';
-import { useRef } from 'react';
-import { useEffect } from 'react';
-import { useCallback } from 'react';
 
 //Events to trigger button click animations programaticaly
 const initActionEvent = document.createEvent('MouseEvents');
@@ -26,17 +23,22 @@ export interface ControlKeyData {
 const ControlKey: React.FC<{ id: KeyCode; onClick: OnActionType; active: boolean }> = ({ id, onClick, active }) => {
     const ref = useRef<HTMLButtonElement>(null);
 
+    const triggerOnClick = useCallback(():void => {
+        onClick(id, 'keydown');
+        setTimeout(() => {
+            onClick(id, 'keyup')
+        }, 500);
+    }, [id, onClick]);
+
     useEffect(() => {
         if (ref.current && active) {
             triggerButtonAnimation(ref.current);
-            onClick(id, 'keydown');
+            triggerOnClick();
         }
-    }, [active, onClick, id]);
-
-    const onButtonClick = useCallback(() => onClick(id, 'keydown'), [onClick, id]);
+    }, [active, triggerOnClick]);
 
     return (
-        <Button id={id} className="controls__key" onClick={onButtonClick} ref={ref}>
+        <Button id={id} className="controls__key" onClick={triggerOnClick} ref={ref}>
             {id}
         </Button>
     );

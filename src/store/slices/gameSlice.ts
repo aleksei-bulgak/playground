@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction, createSelector, createAsyncThunk } from '@reduxjs/toolkit';
-import { KeyCode } from '../../types/key';
+import { KeyCode, KeyType } from '../../types/key';
 import { RootState } from '../index';
 import { error, loader } from './commonSlice';
 
@@ -10,6 +10,7 @@ export interface GameReducerType {
     serverUrl?: string;
     videoUrl?: string;
     actionKey?: KeyCode;
+    actionType?: KeyType;
 }
 
 let initialState: GameReducerType = {};
@@ -42,8 +43,9 @@ const gameSlice = createSlice({
         setVideoUrl(state, action: PayloadAction<string>) {
             state.videoUrl = action.payload;
         },
-        setActionKey(state, action: PayloadAction<KeyCode | undefined>) {
-            state.actionKey = action.payload;
+        setActionKey(state, action: PayloadAction<{ key: KeyCode, type: KeyType } | undefined>) {
+            state.actionKey = action.payload?.key;
+            state.actionType = action.payload?.type;
         },
     },
 });
@@ -65,7 +67,7 @@ export const selectVideoUrl = createSelector(
 
 export const selectionActionKey = createSelector(
     (state: RootState) => state.game,
-    (gameState: GameReducerType) => gameState.actionKey,
+    (gameState: GameReducerType) => ({ actionKey: gameState.actionKey, actionType: gameState.actionType }),
 );
 
 export const { setGameInfo, setVideoUrl, setActionKey } = gameSlice.actions;

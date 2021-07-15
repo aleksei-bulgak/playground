@@ -3,10 +3,9 @@
     bottom: 6rem;
     left: 2rem;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-end;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 0.5rem;
 
     min-height: 12rem;
@@ -29,11 +28,6 @@
     text-transform: uppercase;
     background-color: transparent;
     color: white;
-}
-
-.controls__key:first-child {
-    position: absolute;
-    bottom: 6.5rem;
 }
 
 .keyboard__key--active{
