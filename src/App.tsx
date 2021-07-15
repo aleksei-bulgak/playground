@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+//Replace to browser router when app will be moved to root path
+import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
 import Loader from './pages/LoaderPage';
 import ErrorAlert from './components/error';
