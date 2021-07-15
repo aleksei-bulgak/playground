@@ -3,8 +3,8 @@
     "main.css": "https://aleksei-bulgak.github.io/playground/static/css/main.43b9a79a.chunk.css",
     "main.js": "https://aleksei-bulgak.github.io/playground/static/js/main.09e6252d.chunk.js",
     "main.js.map": "https://aleksei-bulgak.github.io/playground/static/js/main.09e6252d.chunk.js.map",
-    "runtime-main.js": "https://aleksei-bulgak.github.io/playground/static/js/runtime-main.7f357fc7.js",
-    "runtime-main.js.map": "https://aleksei-bulgak.github.io/playground/static/js/runtime-main.7f357fc7.js.map",
+    "runtime-main.js": "https://aleksei-bulgak.github.io/playground/static/js/runtime-main.c1e0e30f.js",
+    "runtime-main.js.map": "https://aleksei-bulgak.github.io/playground/static/js/runtime-main.c1e0e30f.js.map",
     "static/js/2.304fc63d.chunk.js": "https://aleksei-bulgak.github.io/playground/static/js/2.304fc63d.chunk.js",
     "static/js/2.304fc63d.chunk.js.map": "https://aleksei-bulgak.github.io/playground/static/js/2.304fc63d.chunk.js.map",
     "static/js/3.368a3866.chunk.js": "https://aleksei-bulgak.github.io/playground/static/js/3.368a3866.chunk.js",
@@ -12,8 +12,8 @@
     "static/js/4.8fe51d71.chunk.js": "https://aleksei-bulgak.github.io/playground/static/js/4.8fe51d71.chunk.js",
     "static/js/4.8fe51d71.chunk.js.map": "https://aleksei-bulgak.github.io/playground/static/js/4.8fe51d71.chunk.js.map",
     "static/css/5.5191a2f4.chunk.css": "https://aleksei-bulgak.github.io/playground/static/css/5.5191a2f4.chunk.css",
-    "static/js/5.4c2c818a.chunk.js": "https://aleksei-bulgak.github.io/playground/static/js/5.4c2c818a.chunk.js",
-    "static/js/5.4c2c818a.chunk.js.map": "https://aleksei-bulgak.github.io/playground/static/js/5.4c2c818a.chunk.js.map",
+    "static/js/5.1581c19c.chunk.js": "https://aleksei-bulgak.github.io/playground/static/js/5.1581c19c.chunk.js",
+    "static/js/5.1581c19c.chunk.js.map": "https://aleksei-bulgak.github.io/playground/static/js/5.1581c19c.chunk.js.map",
     "static/js/6.5a875c0e.chunk.js": "https://aleksei-bulgak.github.io/playground/static/js/6.5a875c0e.chunk.js",
     "static/js/6.5a875c0e.chunk.js.map": "https://aleksei-bulgak.github.io/playground/static/js/6.5a875c0e.chunk.js.map",
     "index.html": "https://aleksei-bulgak.github.io/playground/index.html",
@@ -24,7 +24,7 @@
     "static/js/4.8fe51d71.chunk.js.LICENSE.txt": "https://aleksei-bulgak.github.io/playground/static/js/4.8fe51d71.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.7f357fc7.js",
+    "static/js/runtime-main.c1e0e30f.js",
     "static/js/2.304fc63d.chunk.js",
     "static/css/main.43b9a79a.chunk.css",
     "static/js/main.09e6252d.chunk.js"
