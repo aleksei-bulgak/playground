@@ -10,10 +10,10 @@ jobs:
     - uses: davideviolante/pr-reviews-reminder-action@v1.5.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SLACK_WEBHOOK_PATH: ${{ secrets.SLACK_WEBHOOK_PATH }}
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         GITHUB2SLACK_MAPPING: ${{ secrets.GITHUB2SLACK_MAPPING }}
       with:
-        webhook-url: 'https://hooks.slack.com/services/$env:SLACK_WEBHOOK_PATH'
+        webhook-url: ${{ secrets.SLACK_WEBHOOK }}
         provider: 'slack'
         channel: 'testnotifications'
-        github-provider-map: '$env:GITHUB2SLACK_MAPPING'
+        github-provider-map: ${{ secrets.GITHUB2SLACK_MAPPING }}
