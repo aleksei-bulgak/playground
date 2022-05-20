@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: aleksei-bulgak/pr-reviews-reminder-action@v1.0.3
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         webhook-url: ${{ secrets.SLACK_WEBHOOK }} #https://hooks.slack.com/services/<channel-specific-part-of-the-path>
         channel: ${{ secrets.SLACK_CHANNEL_NAME }} #testnotifications
