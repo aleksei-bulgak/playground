@@ -1,19 +1,14 @@
 name: Simple PR Notification Workflow
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '0 9 * * MON-FRI'
   workflow_dispatch:
 jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-    - uses: aleksei-bulgak/pr-reviews-reminder-action@v1.0.2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        GITHUB2SLACK_MAPPING: ${{ secrets.GITHUB2SLACK_MAPPING }}
+    - uses: aleksei-bulgak/pr-reviews-reminder-action@v1.0.3
       with:
-        webhook-url: ${{ secrets.SLACK_WEBHOOK }}
-        provider: 'slack'
-        channel: 'testnotifications'
-        github-provider-map: ${{ secrets.GITHUB2SLACK_MAPPING }}
+        webhook-url: ${{ secrets.SLACK_WEBHOOK }} #https://hooks.slack.com/services/<channel-specific-part-of-the-path>
+        channel: ${{ secrets.SLACK_CHANNEL_NAME }} #testnotifications
+        github-provider-map: ${{ secrets.GITHUB2SLACK_MAPPING }} #githubUsername:SlackMemberId,githubUsername2:SlackMemberId2
