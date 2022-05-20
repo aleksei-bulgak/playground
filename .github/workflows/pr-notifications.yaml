@@ -11,6 +11,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SLACK_WEBHOOK_PATH: ${{ secrets.SLACK_WEBHOOK_PATH }}
+        GITHUB2SLACK_MAPPING: ${{ secrets.GITHUB2SLACK_MAPPING }}
       with:
         webhook-url: 'https://hooks.slack.com/services/$env:SLACK_WEBHOOK_PATH'
         provider: 'slack'
